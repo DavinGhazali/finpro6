@@ -1,0 +1,243 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+void Quiz(char *trivia[], int n);
+char Again();
+
+int main() {
+    char *trivia[] = {
+        "Did you know? 1/3 of all food produced globally is wasted.",
+        "Did you know? Every foods have an expiration date, always check them before eating.",
+        "Did you know? A lot of food that is colored may have bad chemicals in them, don't eat too much of it!",
+        "Did you know? To kill off bacteria in your food you must first cook them.",
+        "Did you know? To preserve foods longer you can either salt them or smoke them.",
+        "Did you know? Choosing local food cuts transport emissions.",
+        "Did you know? SDG 12 focuses on safe consumption and production.",
+        "Did you know? Using resources wisely and reducing waste is one of SDG 12 goals.",
+        "Did you know? SDG12 strives to make products using fewer resources and less pollution.",
+        "Did you know? The 3Rs of SDG 12 are Reduce, Reuse, Recycle.",
+        "Did you know? 13% of food is lost along the supply chain.",
+        "Did you know? 19% of food is lost at the consumer level."
+    };
+
+    int n = sizeof(trivia) / sizeof(trivia[0]);
+    char again;
+
+    srand(time(NULL));
+
+    do {
+        Quiz(trivia, n);
+        again = Again();
+    } while (again == 'y' || again == 'Y');
+
+    printf("\nThank you for playing!\n");
+    return 0;
+}
+
+void Quiz(char *trivia[], int n) {
+    int i = rand() % n;
+    char answer;
+
+    printf("\n=== QUIZ TIME ===\n");
+    printf("Trivia: %s\n\n", trivia[i]);
+
+    switch(i) {
+        case 0:
+            printf("How much of the world's food is wasted?\n");
+            printf("a. 10%%\n");
+            printf("b. One-third\n");
+            printf("c. 50%%\n");
+            printf("d. One-fourth\n");
+            answer = 'b';
+            break;
+
+        case 1:
+            printf("What should you always check before eating packaged food?\n");
+            printf("a. The color\n");
+            printf("b. The expiration date\n");
+            printf("c. The brand\n");
+            printf("d. The portion size\n");
+            answer = 'b';
+            break;
+
+        case 2:
+            printf("Why shouldn't you eat too much artificially colored food?\n");
+            printf("a. It tastes strange\n");
+            printf("b. It's too expensive\n");
+            printf("c. It may contain harmful chemicals\n");
+            printf("d. It melts easily\n");
+            answer = 'c';
+            break;
+
+        case 3:
+            printf("How do you kill bacteria in food?\n");
+            printf("a. Freeze it\n");
+            printf("b. Cook it\n");
+            printf("c. Dry it\n");
+            printf("d. Soak it in water\n");
+            answer = 'b';
+            break;
+
+        case 4:
+            printf("Which method helps food last longer?\n");
+            printf("a. Crushing it\n");
+            printf("b. Salting or smoking it\n");
+            printf("c. Adding sugar\n");
+            printf("d. Leaving it outside\n");
+            answer = 'b';
+            break;
+
+        case 5:
+            printf("Why is choosing local food better for the environment?\n");
+            printf("a. It tastes better\n");
+            printf("b. It reduces transportation emissions\n");
+            printf("c. It is always cheaper\n");
+            printf("d. It looks fresher\n");
+            answer = 'b';
+            break;
+
+        case 6:
+            printf("What is the main focus of SDG 12?\n");
+            printf("a. Renewable energy\n");
+            printf("b. Sustainable consumption and production\n");
+            printf("c. Peace and justice\n");
+            printf("d. Healthy living\n");
+            answer = 'b';
+            break;
+
+        case 7:
+            printf("One of the goals of SDG 12 is to…\n");
+            printf("a. Create more waste\n");
+            printf("b. Use resources wisely and reduce waste\n");
+            printf("c. Produce more plastic\n");
+            printf("d. Increase factory pollution\n");
+            answer = 'b';
+            break;
+
+        case 8:
+            printf("SDG 12 wants to make products that…\n");
+            printf("a. Use fewer resources and create less pollution\n");
+            printf("b. Are more expensive\n");
+            printf("c. Use more materials\n");
+            printf("d. Are made faster\n");
+            answer = 'a';
+            break;
+
+        case 9:
+            printf("What do the 3Rs stand for?\n");
+            printf("a. Read, Rewrite, Recycle\n");
+            printf("b. Reduce, Reuse, Recycle\n");
+            printf("c. Remove, Restore, Rework\n");
+            printf("d. Return, Refill, Repair\n");
+            answer = 'b';
+            break;
+
+        case 10:
+            printf("How much food is lost along the supply chain?\n");
+            printf("a. 1%%\n");
+            printf("b. 5%%\n");
+            printf("c. 13%%\n");
+            printf("d. 25%%\n");
+            answer = 'c';
+            break;
+
+        case 11:
+            printf("How much food is wasted at the consumer level?\n");
+            printf("a. 19%%\n");
+            printf("b. 3%%\n");
+            printf("c. 40%%\n");
+            printf("d. 10%%\n");
+            answer = 'a';
+            break;
+
+        // EXTRA NEW QUESTIONS BELOW
+        case 12:
+            printf("Which of the following actions helps reduce food waste at home?\n");
+            printf("a. Buying more than needed\n");
+            printf("b. Planning meals ahead\n");
+            printf("c. Leaving leftovers to spoil\n");
+            printf("d. Ignoring fridge temperature\n");
+            answer = 'b';
+            break;
+
+        case 13:
+            printf("What does sustainable production aim to reduce?\n");
+            printf("a. Worker salaries\n");
+            printf("b. Pollution and resource use\n");
+            printf("c. Food safety\n");
+            printf("d. Store prices\n");
+            answer = 'b';
+            break;
+
+        case 14:
+            printf("Which of the following is an example of 'Reuse'?\n");
+            printf("a. Buying new plastic bags\n");
+            printf("b. Using a jar again for storage\n");
+            printf("c. Throwing containers away\n");
+            printf("d. Burning trash\n");
+            answer = 'b';
+            break;
+
+        case 15:
+            printf("What is a common cause of consumer food waste?\n");
+            printf("a. Eating too fast\n");
+            printf("b. Misunderstanding 'best before' labels\n");
+            printf("c. Cooking too well\n");
+            printf("d. Buying fresh food\n");
+            answer = 'b';
+            break;
+
+        case 16:
+            printf("Which practice helps preserve nutrients while cooking?\n");
+            printf("a. Overcooking food\n");
+            printf("b. Using very high heat\n");
+            printf("c. Steaming vegetables\n");
+            printf("d. Leaving food uncovered\n");
+            answer = 'c';
+            break;
+
+        case 17:
+            printf("What is one benefit of reducing food waste?\n");
+            printf("a. Higher emissions\n");
+            printf("b. More trash in landfills\n");
+            printf("c. Saving money and helping the environment\n");
+            printf("d. Spending more on groceries\n");
+            answer = 'c';
+            break;
+
+        case 18:
+            printf("Which method helps prevent bacterial growth?\n");
+            printf("a. Leaving food at room temperature\n");
+            printf("b. Storing food in the refrigerator\n");
+            printf("c. Keeping food in sunlight\n");
+            printf("d. Storing food in open containers\n");
+            answer = 'b';
+            break;
+
+        case 19:
+            printf("What is the FIRST step in reducing waste according to the 3Rs?\n");
+            printf("a. Reuse\n");
+            printf("b. Recycle\n");
+            printf("c. Reduce\n");
+            printf("d. Remove\n");
+            answer = 'c';
+            break;
+    }
+
+    char user;
+    printf("\nYour answer (a/b/c/d): ");
+    scanf(" %c", &user);
+
+    if (user == answer)
+        printf("Correct!\n");
+    else
+        printf("Incorrect! The correct answer is '%c'.\n", answer);
+}
+
+char Again() {
+    char input;
+    printf("\nDo you want another question? (y/n): ");
+    scanf(" %c", &input);
+    return input;
+}
